@@ -1,0 +1,232 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ink: #1d2326;
+  --color-sub: #6c7a82;
+  --color-faint: #9aa6ac;
+  --color-line: #e3e8ea;
+  --color-rule: #c9d4d9;
+  --color-sea: #0b6e8f;
+  --color-sea-d: #07526b;
+  --color-sea-pale: #eef5f8;
+  --color-nav: #4d5b62;
+  --color-cover-sub: #cfe6ee;
+  --color-quote: #44525a;
+  --color-quote-d: #2b3a41;
+  --color-code-bg: #eef3f5;
+  --color-pre-bg: #f3f6f7;
+  --color-pre-line: #e3e9ec;
+  --color-bar: #c3d0d5;
+  --color-bar-d: #b4c4cb;
+  --font-sans:
+    'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
+    'Malgun Gothic', sans-serif;
+  --font-serif: 'Noto Serif KR', 'Batang', serif;
+  --font-mono: Consolas, 'D2Coding', 'Courier New', monospace;
+}
+
+@layer base {
+  html {
+    word-break: keep-all;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: #fff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  ::selection {
+    background: var(--color-cover-sub);
+    color: var(--color-ink);
+  }
+
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin: 0;
+  }
+}
+
+/* 가로로 밀어서 보는 목록의 스크롤바 숨김 */
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* 글 본문 */
+@layer components {
+  .post-body {
+    font-size: 16.5px;
+    line-height: 1.95;
+    letter-spacing: -0.01em;
+    overflow-wrap: anywhere;
+  }
+
+  .post-body h3 {
+    margin: 44px 0 12px;
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    scroll-margin-top: 16px;
+  }
+
+  .post-body h4 {
+    margin: 28px 0 8px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .post-body p {
+    margin: 8px 0;
+  }
+
+  .post-body a {
+    color: var(--color-sea);
+    border-bottom: 1px solid rgb(11 110 143 / 0.35);
+  }
+
+  .post-body a:hover {
+    border-bottom-color: var(--color-sea);
+  }
+
+  .post-body ul {
+    margin: 8px 0;
+    padding-left: 22px;
+    list-style: disc;
+  }
+
+  .post-body ol {
+    margin: 8px 0;
+    padding-left: 22px;
+    list-style: decimal;
+  }
+
+  .post-body blockquote {
+    margin: 22px 0;
+    padding: 2px 0 2px 16px;
+    border-left: 3px solid var(--color-sea);
+    color: var(--color-quote);
+    font-weight: 500;
+  }
+
+  .post-body aside {
+    margin: 22px 0;
+    padding: 16px 20px;
+    background: var(--color-sea-pale);
+    border-left: 3px solid var(--color-sea);
+  }
+
+  .post-body aside blockquote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: var(--color-quote-d);
+  }
+
+  .post-body hr,
+  .post-body > br {
+    display: none;
+  }
+
+  .post-body img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    border: 1px solid var(--color-line);
+  }
+
+  .post-body code {
+    padding: 2px 6px;
+    background: var(--color-code-bg);
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+  }
+
+  .post-body pre {
+    margin: 18px 0;
+    padding: 16px 18px 12px;
+    overflow-x: auto;
+    border: 1px solid var(--color-pre-line);
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-bar-d) transparent;
+  }
+
+  .post-body pre code {
+    padding: 0;
+    background: none;
+    font-size: 13.5px;
+    line-height: 1.8;
+  }
+
+  .post-body pre.shiki {
+    background-color: var(--color-pre-bg) !important;
+  }
+
+  .post-body pre::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .post-body pre::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .post-body pre::-webkit-scrollbar-thumb {
+    background: var(--color-bar);
+    border-radius: 3px;
+  }
+
+  .post-body pre::-webkit-scrollbar-thumb:hover {
+    background: var(--color-sea);
+  }
+
+  .post-body .table-wrap {
+    margin: 20px 0;
+    overflow-x: auto;
+  }
+
+  .post-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  .post-body th {
+    padding: 10px 12px;
+    border-top: 2px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .post-body td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .post-body td:first-child {
+    white-space: nowrap;
+  }
+}

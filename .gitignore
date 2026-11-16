@@ -1,0 +1,7 @@
+node_modules
+dist
+content
+public/content
+*.tsbuildinfo
+.env
+.env.local
